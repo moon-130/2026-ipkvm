@@ -1,0 +1,20 @@
+listen = "0.0.0.0:9080"
+static_dir = "/opt/ipkvm/web"
+
+[kvmd]
+base_url = "https://127.0.0.1"
+username = "ipkvm-gateway"
+# 生产环境不要在本文件填写密码，使用 /etc/ipkvm/gateway.env 中的 IPKVM_KVMD_PASSWORD。
+password = "change-me"
+accept_invalid_certs = true
+request_timeout_ms = 1500
+
+[live777]
+health_url = "http://127.0.0.1:7777/"
+base_url = "http://127.0.0.1:7777"
+whep_url = "/ipkvm/media/whep/ipkvm"
+
+[video]
+width = 1280
+height = 720
+fps = 30

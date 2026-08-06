@@ -1,0 +1,22 @@
+[Unit]
+Description=LiveKVM Rust control gateway
+After=network-online.target kvmd.service live777.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ipkvm
+Group=ipkvm
+EnvironmentFile=/etc/ipkvm/gateway.env
+ExecStart=/opt/ipkvm/bin/ipkvm-gateway
+Restart=on-failure
+RestartSec=2
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadOnlyPaths=/opt/ipkvm /etc/ipkvm
+
+[Install]
+WantedBy=multi-user.target
+

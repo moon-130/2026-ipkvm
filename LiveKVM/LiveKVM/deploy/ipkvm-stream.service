@@ -1,0 +1,20 @@
+[Unit]
+Description=PiKVM H264 to Live777 adapter
+After=network-online.target kvmd.service live777.service
+Requires=live777.service
+
+[Service]
+Type=simple
+User=ipkvm
+Group=ipkvm
+EnvironmentFile=/etc/ipkvm/gateway.env
+RuntimeDirectory=ipkvm
+RuntimeDirectoryMode=0750
+ExecStart=/opt/ipkvm/bin/stream-adapter.sh
+Restart=always
+RestartSec=3
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
+

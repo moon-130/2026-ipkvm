@@ -1,0 +1,18 @@
+[http]
+listen = "0.0.0.0:7777"
+cors = false
+
+[webrtc]
+# 局域网自动发布树莓派的非回环IPv4地址，不依赖公网STUN/TURN。
+ice_udp_addrs = ["auto"]
+
+[strategy]
+auto_create_whip = true
+auto_create_whep = true
+auto_delete_whip = 60000
+auto_delete_whep = 60000
+each_stream_max_sub = 8
+
+[log]
+level = "info"
+
